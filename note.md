@@ -1,0 +1,31 @@
+多线程：
+- 启动多线程
+   - 模块_thread  函数start_new_thraead( function, (canshu))
+   - import _thread as thread
+   - threading.Thread   新方法
+   - t = threading.Thread(target = xxx, args = (xxx, ))
+   - t.start():启动多线程
+   - t.join():等待多线程执行完成
+   - 守护线程 ：daemon
+      - 如果在程序中，将子线程设置为守护线程，则子线程在主线程结束时退出
+      - 守护线程不能离开主线程独立运行
+      - 守护线程能否有用跟环境有关
+      - 设置守护线程：t.daemon = True 
+   - 共享变量
+      - 当多个线程访问一个变量的时候，会产生共享变量问题
+      - 解决变量(锁，信号灯)
+      - 锁(Lock)
+         - 表示一个标志，表示某个线程正在占用某一资源
+         - 使用方法：
+             - 上锁 lock = threading.Lock() lock.acquire()
+             - 用
+             - 解锁，释放锁 lock.release()
+             - 锁谁：哪个个资源需要多线程，就锁谁
+             - 锁是一个令牌，谁申请到了锁，谁就有资格去访问资源
+         - 线程的安全
+             - 如果一个资源或变量在不设锁的时候不会引起任何问题，则就是线程安全
+             - 线程不安全类型： list，set, dict
+             - 线程安全类型：queue
+   - 生产者消费者问题
+      - 一个模型，可以用来存放消费队列
+      - 
